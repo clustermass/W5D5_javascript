@@ -32,15 +32,18 @@ function innerBubbleSortLoop(arr, i, madeAnySwaps, outerBubbleSortLoop) {
     el1 = arr[i]
     el2 = arr[i+1]
     askIfGreaterThan(el1, el2, function(bigger){
+      console.log(i);
       if (bigger){
       let temp = arr[i];
       arr[i] = arr[i+1];
       arr[i+1] = temp;
       madeAnySwaps = true;
-      innerBubbleSortLoop(arr, i++,madeAnySwaps, outerBubbleSortLoop);
+      i++;
+      innerBubbleSortLoop(arr, i,madeAnySwaps, outerBubbleSortLoop);
       }
       else{
-      innerBubbleSortLoop(arr, i++,madeAnySwaps, outerBubbleSortLoop);
+      i++;
+      innerBubbleSortLoop(arr, i,madeAnySwaps, outerBubbleSortLoop);
       }
     });
   }
